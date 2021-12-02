@@ -6,15 +6,17 @@ let depth = 0;
 let aim = 0;
 
 for (let i = 0; i < length; i++) {
-    if(Object.keys(a[i]).toString() === 'forward') {
-        horizontal = horizontal + parseInt(Object.values(a[i]).toString());
-        depth = depth + parseInt(Object.values(a[i]).toString() * aim);
+    const key = Object.keys(a[i]).toString();
+    const value = parseInt(Object.values(a[i]));
+    if(key === 'forward') {
+        horizontal = horizontal + value;
+        depth = depth + (value * aim);
     }
-    if(Object.keys(a[i]).toString() === 'up') {
-        aim = aim - parseInt(Object.values(a[i]).toString());
+    if(key === 'up') {
+        aim = aim - value;
     }
-    if(Object.keys(a[i]).toString() === 'down') {
-        aim = aim + parseInt(Object.values(a[i]).toString());
+    if(key === 'down') {
+        aim = aim + value;
     }
 }
 console.log(horizontal, '<-> ', depth);

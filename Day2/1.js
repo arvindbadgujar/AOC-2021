@@ -4,14 +4,16 @@ const length = a.length;
 let horizontal = 0;
 let depth = 0;
 for (let i = 0; i < length; i++) {
-    if(Object.keys(a[i]).toString() === 'forward') {
-        horizontal = horizontal + parseInt(Object.values(a[i]).toString());
+    const key = Object.keys(a[i]).toString();
+    const value = parseInt(Object.values(a[i]));
+    if(key === 'forward') {
+        horizontal = horizontal + value;
     }
-    if(Object.keys(a[i]).toString() === 'up') {
-        depth = depth - parseInt(Object.values(a[i]).toString());
+    if(key === 'up') {
+        depth = depth - value;
     }
-    if(Object.keys(a[i]).toString() === 'down') {
-        depth = depth + parseInt(Object.values(a[i]).toString());
+    if(key === 'down') {
+        depth = depth + value;
     }
 }
 console.log(depth, '<-> ', horizontal);
