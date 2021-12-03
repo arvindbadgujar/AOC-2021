@@ -32,16 +32,13 @@ function returnRate (rateArray, type, bitsProgress) {
             oneArray.push(rateArray[i]);
             countOne++;
         }
-        if (i+1 === rateArray.length) {
-            if (type === 'O2') {
-                returnRate(countZero > countOne ? zeroArray : oneArray, type, bitsProgress+1)
-            }
-            if (type === 'CO2') {
-                returnRate(countZero > countOne ? oneArray : zeroArray, type, bitsProgress+1)
-            }
-        }
     }
-
+    if (type === 'O2') {
+        returnRate(countZero > countOne ? zeroArray : oneArray, type, bitsProgress+1)
+    }
+    if (type === 'CO2') {
+        returnRate(countZero > countOne ? oneArray : zeroArray, type, bitsProgress+1)
+    }
 }
 
 returnRate(mat, 'O2', 0);

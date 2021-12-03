@@ -10,9 +10,10 @@ for (let i = 0; i < length; i++) {
         mat[i][j] = a[i].slice(j,j+1);
     }
 }
-console.table(mat);
+
 let gamaBits = [];
 let epsilonBits = [];
+
 function returnRate (rateArray, type) {
     for (let j = 0; j < 12; j++) {
         let countZero =0;
@@ -25,14 +26,12 @@ function returnRate (rateArray, type) {
             if (b === 1) {
                 countOne++;
             }
-            if (i+1 === rateArray.length) {
-                if (type === 'gama') {
-                    gamaBits.push(countZero > countOne ? '0' : '1');
-                }
-                if (type === 'epsilon') {
-                    epsilonBits.push(countZero > countOne ? '1' : '0');
-                }
-            }
+        }
+        if (type === 'gama') {
+            gamaBits.push(countZero > countOne ? '0' : '1');
+        }
+        if (type === 'epsilon') {
+            epsilonBits.push(countZero > countOne ? '1' : '0');
         }
     }
 }
